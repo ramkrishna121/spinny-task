@@ -7,6 +7,7 @@ function App() {
   const [result, setresult] = useState([]);
   const [pageno, setpageno] = useState(1);
   const [load , setload] = useState(false);
+  const [api, setapi] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -16,6 +17,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setpageno(1);
+    setapi(true);
     axios.get(`anime?q=${query}&limit=16`).then((response) => {
       setresult(response["data"]["results"]);
     });
@@ -32,6 +34,9 @@ function App() {
      
   }
 
+
+ 
+
   return (
     <div className="app">
       <div className="app__body">
@@ -41,8 +46,10 @@ function App() {
         </form>
 
         <div className="app__body__middle">
-          Requesting: https://api.jikan.moe/v3/search/anime?q={query}&limit=16&page={pageno}
+  { api ? <div>Requesting: https://api.jikan.moe/v3/search/anime?q={query}&limit=16&page={pageno} </div> : <div> </div>}
         </div>
+
+       
 
         <div className="app__body__bottom">
           {result.map((item, itemIndex) => (
