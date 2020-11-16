@@ -62,8 +62,7 @@ function App() {
             </div>
           ))}
         </div>
-        {console.log(result)}
-        {console.log(pageno)}
+
 
        { load ? <div className="more">
           <button onClick = {handleMore}>Load more</button>
