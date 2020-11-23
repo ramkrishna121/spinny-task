@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "spinny-task-b6ce0"
+    "spinny-task": "spinny-task-ca270",
+    "default": "spinny-task-ca270"
   }
 }
